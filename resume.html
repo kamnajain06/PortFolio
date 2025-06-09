@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kamna Jain - Resume</title>
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Add PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <style>
+      body {
+        background-color: #111;
+        color: white;
+        font-family: "Nunito", sans-serif;
+      }
+
+      .resume-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #b0b2c3;
+        transition: color 0.3s;
+      }
+
+      .back-button:hover {
+        color: white;
+      }
+
+      .pdf-container {
+        flex: 1;
+        margin: 2rem auto;
+        max-width: 850px;
+        width: 100%;
+        background: #1a1a1a;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(23, 136, 174, 0.4);
+        border: 1px solid #2a2a2a;
+        padding: 1rem;
+      }
+
+      #pdf-viewer {
+        width: 100%;
+        height: 80vh;
+        background: #fff;
+        border: none;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+      }
+
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .download-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(to right, #1595b6, #1f2667);
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+        margin: 1.5rem auto;
+        transition: transform 0.2s;
+      }
+
+      .download-button:hover {
+        transform: scale(1.05);
+      }
+
+      .page-title {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: bold;
+        margin: 2rem 0;
+        color: #1788ae;
+        position: relative;
+      }
+
+      .page-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #1788ae;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        color: #1788ae;
+      }
+
+      @media (max-width: 786px) {
+        .pdf-container {
+          margin: 1rem auto;
+          padding: 0.5rem;
+        }
+
+        .page-title {
+          font-size: 1.5rem;
+          margin: 1rem 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="resume-container">
+      <a href="index.html" class="back-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 12H5"></path>
+          <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+        Back to Portfolio
+      </a>
+
+      <h1 class="page-title">My Resume</h1>
+
+      <div class="pdf-container">
+        <div id="pdf-viewer">
+          <div class="loading-spinner">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <style>
+                .spinner_P7sC {
+                  transform-origin: center;
+                  animation: spinner_svv2 0.75s infinite linear;
+                }
+                @keyframes spinner_svv2 {
+                  100% {
+                    transform: rotate(360deg);
+                  }
+                }
+              </style>
+              <path
+                d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"
+                class="spinner_P7sC"
+                fill="currentColor"
+              />
+            </svg>
+            Loading PDF...
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <a
+          href="./assets/resume/kamna-jain-resume.pdf"
+          download
+          class="download-button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Set PDF.js worker
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+
+      // Variables
+      const pdfViewerContainer = document.getElementById("pdf-viewer");
+      const pdfUrl = "./assets/images/Kamna_Jain_Resume.pdf"; // Path to your PDF file
+
+      // Get device pixel ratio for high-DPI displays
+      const pixelRatio = window.devicePixelRatio || 1;
+
+      // Set fixed size regardless of screen width
+      let currentScale = calculateScaleForFixedSize(805, 1042);
+      let pdfDoc = null;
+      let canvasContainer = null;
+      let canvas = null;
+
+      // Function to calculate scale based on desired fixed size
+      function calculateScaleForFixedSize(targetWidth, targetHeight) {
+        // We'll set an initial approximation and then adjust when we have the actual PDF dimensions
+        return window.innerWidth > 786 ? 2.0 : 1.3;
+      }
+
+      // Function to render PDF with higher quality
+      function renderPDF() {
+        pdfjsLib
+          .getDocument(pdfUrl)
+          .promise.then(function (pdf) {
+            pdfDoc = pdf;
+            pdfViewerContainer.innerHTML = "";
+
+            // Render first page
+            pdf.getPage(1).then(function (page) {
+              // Get default viewport to calculate the proper scale
+              const defaultViewport = page.getViewport({ scale: 1.0 });
+
+              // Calculate scale to achieve target dimensions (approximately 805x1042)
+              const scaleX = 805 / defaultViewport.width;
+              const scaleY = 1042 / defaultViewport.height;
+
+              // Use the smaller scale to ensure entire page is visible
+              currentScale = Math.min(scaleX, scaleY);
+
+              canvasContainer = document.createElement("div");
+              canvasContainer.className = "canvas-container";
+              canvasContainer.id = "canvas-container";
+
+              // Center the PDF with improved margins
+              canvasContainer.style.display = "flex";
+              canvasContainer.style.justifyContent = "center";
+              canvasContainer.style.padding = "10px 0";
+
+              pdfViewerContainer.appendChild(canvasContainer);
+
+              canvas = document.createElement("canvas");
+              canvas.id = "pdf-canvas";
+              canvasContainer.appendChild(canvas);
+
+              const context = canvas.getContext("2d");
+
+              // Apply device pixel ratio for high-DPI displays
+              const viewport = page.getViewport({
+                scale: currentScale * pixelRatio,
+              });
+
+              // Set canvas dimensions accounting for pixel ratio
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+
+              // Scale down with CSS to maintain physical size while increasing resolution
+              canvas.style.width = viewport.width / pixelRatio + "px";
+              canvas.style.height = viewport.height / pixelRatio + "px";
+
+              // Enable high-quality image interpolation
+              context.imageSmoothingEnabled = true;
+              context.imageSmoothingQuality = "high";
+
+              // Store the original dimensions for zooming
+              canvas.dataset.originalWidth = viewport.width / pixelRatio;
+              canvas.dataset.originalHeight = viewport.height / pixelRatio;
+
+              console.log(
+                `Canvas initialized at: ${canvas.width}px × ${canvas.height}px (display size: ${canvas.style.width} × ${canvas.style.height})`
+              );
+
+              // Render PDF page with high-quality settings
+              page.render({
+                canvasContext: context,
+                viewport: viewport,
+                // Enable better text rendering
+                renderInteractiveForms: true,
+                enableWebGL: true,
+              });
+            });
+          })
+          .catch(function (error) {
+            console.error("Error loading PDF:", error);
+            pdfViewerContainer.innerHTML =
+              '<div style="text-align: center; color: red;">Error loading PDF. Please try again later.</div>';
+          });
+      }
+
+      // Function to zoom the canvas instead of re-rendering
+      function zoomCanvas(zoomFactor) {
+        const pdfCanvas = document.getElementById("pdf-canvas");
+        if (!pdfCanvas) return;
+
+        // Get current dimensions (from style since we're using pixel ratio)
+        const currentWidth = parseFloat(pdfCanvas.style.width);
+        const currentHeight = parseFloat(pdfCanvas.style.height);
+
+        // Calculate new dimensions
+        const newWidth = currentWidth * zoomFactor;
+        const newHeight = currentHeight * zoomFactor;
+
+        // Apply new dimensions
+        pdfCanvas.style.width = newWidth + "px";
+        pdfCanvas.style.height = newHeight + "px";
+
+        // Log for debugging
+        console.log(`Zoomed canvas to: ${newWidth}px × ${newHeight}px`);
+      }
+
+      // Initial rendering
+      renderPDF();
+
+      // On window resize, adjust the canvas to maintain aspect ratio but keep similar size
+      window.addEventListener("resize", function () {
+        renderPDF(); // This will recalculate the scale based on the new window size
+      });
+    </script>
+  </body>
+</html>
